@@ -13,7 +13,7 @@ The solutions are organized by difficulty or topic:
 /Hard - Complex problems and optimization.
 
 🛠️ Tech Stack
-Primary Language: Python 
+Primary Language: Python,C,C++,Java
 # 🚀 Data Structures & Algorithms Journey
 
 ![LeetCode Stats](https://jacoblin.cool) 
