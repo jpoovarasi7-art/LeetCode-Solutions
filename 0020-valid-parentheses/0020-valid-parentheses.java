@@ -1,26 +1,31 @@
 import java.util.Stack;
+
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> sam = new Stack<>();
-        for (char c : s.toCharArray()) 
-        {
-            if (c == '(') 
-            {
-                sam.push(')');
-            }
-            else if (c == '{') 
-            {
-                sam.push('}');
-            } 
-            else if (c == '[') 
-            {
-                sam.push(']');
-            } 
-            else if (sam.isEmpty() || sam.pop() != c)
-            {
-                return false;
+        // Early exit: odd length strings can never be valid
+        if (s.length() % 2 != 0) {
+            return false;
+        }
+
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            // Push expected closing bracket onto the stack
+            if (c == '(') {
+                stack.push(')');
+            } else if (c == '{') {
+                stack.push('}');
+            } else if (c == '[') {
+                stack.push(']');
+            } else {
+                // If stack is empty or top element doesn't match current closing bracket
+                if (stack.isEmpty() || stack.pop() != c) {
+                    return false;
+                }
             }
         }
-        return sam.isEmpty();
+
+        // Return true if all opening brackets were properly closed
+        return stack.isEmpty();
     }
 }
